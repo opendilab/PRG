@@ -2,7 +2,6 @@
 # Pretrained Reversible Generation as Unsupervised Visual Representation Learning
 [![Twitter](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2Fopendilab)](https://twitter.com/opendilab)
 ![PyTorch](https://img.shields.io/badge/pytorch-2.5.0-blue)
-![GitHub Org's stars](https://img.shields.io/github/stars/PRG)
 [![arXiv](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://arxiv.org/abs/2412.01787)
 [![demo](https://img.shields.io/badge/PRG-Demo-red)](https://opendilab.github.io/PRG/)
 
