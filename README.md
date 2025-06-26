@@ -10,7 +10,7 @@
 🎉 What I cannot create, I do not understand.
 
 # 🔥 News
-- *2025.06.26*: We update WavTokenizer camera ready version for ICCV 2025. 
+- *2025.06.26*: We update WavTokenizer camera ready version for ICCV 2025 and release project website(https://opendilab.github.io/PRG/)
 - *2024.11.29*: We release PRG on arxiv.
   
 # Upcoming Features and Changes
