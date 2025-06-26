@@ -1,0 +1,314 @@
+body {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.iframe-container {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+}
+
+.iframe-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80%;
+  height: 80%;
+  border: 0;
+}
+
+.custom-column {
+  width: 40%; /* Fit to the width of its parent or adjust as necessary */
+  padding: 0;
+  margin: 0 auto; /* Center the column */
+}
+
+ul {
+  list-style-type: none; /* Removes default bullets */
+  padding-left: 0; /* Removes default padding */
+}
+
+ul li::before {
+  content: "- "; /* Adds dash before the text of each list item */
+  padding-right: 5px; /* Optional: Adds space between the dash and the text */
+}
+
+ul.custom-bullets {
+  list-style-type: none; /* Remove default bullets */
+  padding-left: 0;       /* Adjust padding if needed */
+}
+
+ul.custom-bullets li::before {
+  content: "•";  /* Custom bullet symbol */
+  color: black;   /* You can change the color */
+  font-size: 20px; /* Adjust size as needed */
+  padding-right: 5px; 
+}
+
+.custom-column-large video {
+  border: 1px solid black;
+}
+
+#all-video-container {
+  display: flex;
+  justify-content: center; /* Centers the video horizontally */
+  align-items: center; /* Aligns the video vertically in the center */
+  width: 100%; /* Container takes the full width of its parent */
+}
+
+#all-video-container video {
+  width: 100%; /* Increase this value to make the video larger */
+  margin: 0 auto; /* Centers the video horizontally within the container */
+}
+
+#each-video-container {
+  display: flex;
+  justify-content: space-around; /* Distributes space around each video evenly */
+  align-items: center; /* Aligns the videos vertically within the container */
+  width: 100%; /* Ensures the container takes full width of its parent */
+}
+
+#each-video-container video {
+  width: 23%; /* Matches the individual video sizes in the multi-video layout */
+  margin: 0 1%; /* Adds a small margin between videos */
+}
+
+#all-webshop-container {
+  display: flex;
+  justify-content: center; /* Centers the video horizontally */
+  align-items: center; /* Aligns the video vertically in the center */
+  width: 100%; /* Container takes the full width of its parent */
+}
+
+#all-webshop-container video {
+  width: 100%; /* Increase this value to make the video larger */
+  margin: 0 auto; /* Centers the video horizontally within the container */
+}
+
+#each-webshop-container {
+  display: flex;
+  justify-content: space-around; /* Distributes space around each video evenly */
+  align-items: center; /* Aligns the videos vertically within the container */
+  width: 100%; /* Ensures the container takes full width of its parent */
+}
+
+#each-webshop-container video {
+  width: 23%; /* Matches the individual video sizes in the multi-video layout */
+  margin: 0 1%; /* Adds a small margin between videos */
+}
+
+
+
+.custom-column-large {
+  width: 60%;       /* This sets the width of the element to always be 60% of its parent's width */
+  padding: 0;       /* No padding inside the element */
+  margin: 0 auto;   /* Centers the element horizontally within its parent */
+  box-sizing: border-box; /* Ensures that padding and border sizes (if any are added later) are included in the width calculation */
+}
+
+.custom-column-large video {
+  width: 100%;   /* Makes the video fill the width of the .custom-column-large */
+  height: auto;  /* Maintains the aspect ratio of the video */
+}
+
+.custom-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Full height of the container */
+  margin: 0;
+}
+
+.custom-iframe-container {
+  position: relative;
+  width: 100%; /* Full width */
+  padding-top: 56.25%; /* Aspect ratio for 16:9 videos, adjust if your video has a different aspect ratio */
+  height: 0;
+  overflow: hidden;
+  background-color: #FFF; /* Adjust if needed */
+}
+
+.custom-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  border: none;
+}
+
+
+.footer .icon-link {
+    font-size: 25px;
+    color: #000;
+}
+
+.link-block a {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.teaser .hero-body {
+  padding-top: 0;
+  padding-bottom: 3rem;
+}
+
+.teaser {
+  font-family: 'Google Sans', sans-serif;
+}
+
+
+.publication-banner {
+  max-height: parent;
+
+}
+
+.publication-banner video {
+  position: relative;
+  left: auto;
+  top: auto;
+  transform: none;
+  object-fit: fit;
+}
+
+.publication-title {
+    font-family: 'Google Sans', sans-serif;
+}
+
+.publication-authors {
+    font-family: 'Google Sans', sans-serif;
+}
+
+.publication-venue {
+    color: #555;
+    width: fit-content;
+    font-weight: bold;
+}
+
+.publication-awards {
+    color: #ff3860;
+    width: fit-content;
+    font-weight: bolder;
+}
+
+
+.publication-authors a {
+   text-decoration: none;
+}
+
+.publication-authors a:hover {
+    text-decoration: underline;
+}
+
+.author-block {
+  display: inline-block;
+}
+
+.publication-banner img {
+}
+
+.publication-authors {
+  /*color: #4286f4;*/
+}
+
+.publication-video {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+
+    overflow: hidden;
+    border-radius: 10px !important;
+}
+
+.publication-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.publication-body img {
+}
+
+.results-carousel {
+  overflow: hidden;
+}
+
+.results-carousel .item {
+  margin: 5px;
+  overflow: hidden;
+  border: 1px solid #bbb;
+  border-radius: 10px;
+  padding: 0;
+  font-size: 0;
+}
+
+.results-carousel video {
+  margin: 0;
+}
+
+
+.interpolation-panel {
+  background: #f5f5f5;
+  border-radius: 10px;
+}
+
+.interpolation-panel .interpolation-image {
+  width: 100%;
+  border-radius: 5px;
+}
+
+
+.interpolation-panel .slider {
+  margin: 0 !important;
+}
+
+.interpolation-panel .slider {
+  margin: 0 !important;
+}
+
+#interpolation-image-wrapper {
+  width: 100%;
+}
+#interpolation-image-wrapper img {
+  border-radius: 5px;
+}
+
+
+.chart-container {
+  height: 50vh;
+  margin: auto;
+  position: relative;
+  max-width: calc(min(60vh, 100%));;
+}
+
+/* Mobile override */
+@media (max-width: 768px) {  /* Change 768px to your mobile breakpoint */
+  .chart-container {
+      height: 90vw;
+      max-width: calc(min(90vw, 100%));;
+  }
+  h1 {
+      font-size: 1.5rem;
+  }
+  h2 {
+      font-size: 1.3rem;
+  }
+  h3 {
+      font-size: 1.1rem;
+  }
+  p,
+  span,
+  li {
+      font-size: 1rem;
+  }
+}
+
+
+.tabulator-header .tabulator-col {
+  text-align:center;
+}
