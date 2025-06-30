@@ -219,6 +219,12 @@
                         <div class="column">
                             <div class="text-justified">
                                 <h3> How can PRG work? </h3>
+                                <ul>
+                                    <li> PRG proposes to turn a pretrained continuous time flow diffusion
+                                        generator upside down running the model backward produces multi level features
+                                        that after light fine tuning serve as an unsupervised representation extractor.
+                                    </li>
+                                </ul>
                                 <ul class="custom-bullets">
                                     <li>Stage 1: We unsupervisedly pretrain a reversible diffusion/flow model, learning
                                         the forward generative trajectory from raw data to latent space.</li>
@@ -258,7 +264,7 @@
                             <div class="text-justified">
                                 <h3>Why choose PRG?</h3>
                                 <p>
-                                    PRG (Pretrained Reversible Generation) delivers three standout benefits that make it
+                                    PRG delivers three standout benefits that make it
                                     a drop-in upgrade for modern generative pipelines:
                                 </p>
                                 <ul class="custom-bullets">
