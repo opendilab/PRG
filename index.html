@@ -53,11 +53,10 @@
 
     </script>
 
-
-
     <noscript>
         <p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101339888ns.gif" /></p>
     </noscript>
+
 </head>
 
 <body>
@@ -292,11 +291,349 @@
                                 </p>
 
                             </div>
+
                         </div>
                         <!--/ Visual Effects. -->
 
                     </div>
             </section>
+
+<style>
+  /* 颜色变量（Light Mode） */
+  :root {
+    --table-border: #ddd;
+    --header-text: #fff;
+    --row-hover: rgba(0, 0, 0, 0.05);
+    --group-bg: rgba(255, 255, 255, 0.6);
+  }
+
+  /* 深色模式覆盖 */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --table-border: #444;
+      --header-text: #eee;
+      --row-hover: rgba(255, 255, 255, 0.1);
+      --group-bg: rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  /* 卡片内表格容器 */
+  .table-card .card-content {
+    padding: 1rem 1rem 0;
+  }
+
+  /* 整张表的边框 */
+  .table-card table {
+    border: 2px solid var(--table-border);
+    table-layout: fixed;
+    width: 100%;
+  }
+
+  /* 渐变表头：三张表分别不同配色 */
+  #prg-exp .table-card:nth-of-type(1) thead {
+    background: linear-gradient(90deg, #ff9a9e, #fad0c4);
+    color: var(--header-text);
+  }
+  #prg-exp .table-card:nth-of-type(2) thead {
+    background: linear-gradient(90deg, #a18cd1, #fbc2eb);
+    color: var(--header-text);
+  }
+  #prg-exp .table-card:nth-of-type(3) thead {
+    background: linear-gradient(90deg, #43cea2, #185a9d);
+    color: var(--header-text);
+  }
+
+  /* 表头文字加粗且溢出省略 */
+  .table-card thead th {
+    font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* 分组行浅色背景 */
+  .table-card tbody tr.has-background-light {
+    background-color: var(--group-bg);
+  }
+
+  /* 鼠标悬停高亮 */
+  .table-card tbody tr:hover {
+    background-color: var(--row-hover);
+  }
+
+  /* 卡片之间的垂直间距 */
+  .table-card + .table-card {
+    margin-top: 1.5rem;
+  }
+
+  /* 文本对齐：第一列左，其它列居中 */
+  .table-card th,
+  .table-card td {
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .table-card th:first-child,
+  .table-card td:first-child {
+    text-align: left;
+  }
+
+  /* 数字列等宽字体 */
+  .table-card td:nth-child(2),
+  .table-card td:nth-child(3) {
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  }
+
+  /* 统一列宽（60%｜20%｜20%） */
+  .table-card col:nth-child(1) { width: 60%; }
+  .table-card col:nth-child(2) { width: 20%; }
+  .table-card col:nth-child(3) { width: 20%; }
+</style>
+
+            <section class="section" id="prg-exp">
+                <div class="container is-max-desktop">
+                    <h2 class="subtitle is-3 has-text-centered">PRG EXP</h2>
+
+                    <!-- CIFAR-10 -->
+                    <div class="card table-card">
+                        <header class="card-header">
+                            <p class="card-header-title">CIFAR-10</p>
+                        </header>
+                        <div class="card-content">
+                            <div class="table-container">
+                                <table class="table is-fullwidth is-striped is-hoverable is-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Method</th>
+                                            <th>Param. (M)</th>
+                                            <th>Acc. (%)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="has-background-light">
+                                            <th colspan="3">Discriminative methods</th>
+                                        </tr>
+                                        <tr>
+                                            <td>WideResNet-28-10 <sup>[70]</sup></td>
+                                            <td>36</td>
+                                            <td>96.3</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ResNeXt-29-16×64d <sup>[66]</sup></td>
+                                            <td>68</td>
+                                            <td>96.4</td>
+                                        </tr>
+                                        <tr class="has-background-light">
+                                            <th colspan="3">Generative methods</th>
+                                        </tr>
+                                        <tr>
+                                            <td>GLOW <sup>[19]</sup></td>
+                                            <td>N/A</td>
+                                            <td>84.0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Energy model <sup>[18]</sup></td>
+                                            <td>N/A</td>
+                                            <td>92.9</td>
+                                        </tr>
+                                        <tr>
+                                            <td>SBGC <sup>[73]</sup></td>
+                                            <td>N/A</td>
+                                            <td>95.0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>HybViT <sup>[67]</sup></td>
+                                            <td>43</td>
+                                            <td>96.0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>DDAE <sup>[65]</sup></td>
+                                            <td>36</td>
+                                            <td>97.2</td>
+                                        </tr>
+                                        <tr class="has-background-light">
+                                            <th colspan="3">Our methods</th>
+                                        </tr>
+                                        <tr>
+                                            <td>PRG-GVP-onlyPretrain</td>
+                                            <td>42</td>
+                                            <td>54.10</td>
+                                        </tr>
+                                        <tr>
+                                            <td>PRG-GVP-S</td>
+                                            <td>42</td>
+                                            <td>97.35</td>
+                                        </tr>
+                                        <tr>
+                                            <td>PRG-ICFM-S</td>
+                                            <td>42</td>
+                                            <td>97.59</td>
+                                        </tr>
+                                        <tr>
+                                            <td>PRG-OTCFM-S</td>
+                                            <td>42</td>
+                                            <td>97.65</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tiny-ImageNet -->
+                    <div class="card table-card">
+                        <header class="card-header">
+                            <p class="card-header-title">Tiny-ImageNet</p>
+                        </header>
+                        <div class="card-content">
+                            <div class="table-container">
+                                <table class="table is-fullwidth is-striped is-hoverable is-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Method</th>
+                                            <th>Param. (M)</th>
+                                            <th>Acc. (%)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="has-background-light">
+                                            <th colspan="3">Discriminative methods</th>
+                                        </tr>
+                                        <tr>
+                                            <td>WideResNet-28-10 <sup>[70]</sup></td>
+                                            <td>36</td>
+                                            <td>69.3</td>
+                                        </tr>
+                                        <tr class="has-background-light">
+                                            <th colspan="3">Generative methods</th>
+                                        </tr>
+                                        <tr>
+                                            <td>HybViT <sup>[67]</sup></td>
+                                            <td>43</td>
+                                            <td>56.7</td>
+                                        </tr>
+                                        <tr>
+                                            <td>DDAE <sup>[65]</sup></td>
+                                            <td>40</td>
+                                            <td>69.4</td>
+                                        </tr>
+                                        <tr class="has-background-light">
+                                            <th colspan="3">Our methods</th>
+                                        </tr>
+                                        <tr>
+                                            <td>PRG-GVP-onlyPretrain</td>
+                                            <td>42</td>
+                                            <td>15.34</td>
+                                        </tr>
+                                        <tr>
+                                            <td>PRG-GVP-S</td>
+                                            <td>42</td>
+                                            <td>70.98</td>
+                                        </tr>
+                                        <tr>
+                                            <td>PRG-ICFM-S</td>
+                                            <td>42</td>
+                                            <td>71.12</td>
+                                        </tr>
+                                        <tr>
+                                            <td>PRG-OTCFM-S</td>
+                                            <td>42</td>
+                                            <td>71.33</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ImageNet -->
+                    <div class="card table-card">
+                        <header class="card-header">
+                            <p class="card-header-title">ImageNet</p>
+                        </header>
+                        <div class="card-content">
+                            <div class="table-container">
+                                <table class="table is-fullwidth is-striped is-hoverable is-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Method</th>
+                                            <th>Param. (M)</th>
+                                            <th>Acc. (%)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="has-background-light">
+                                            <th colspan="3">Discriminative methods</th>
+                                        </tr>
+                                        <tr>
+                                            <td>ViT-L/16 (384²) <sup>[17]</sup></td>
+                                            <td>307</td>
+                                            <td>76.5</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ResNet-152 (224²) <sup>[23]</sup></td>
+                                            <td>60</td>
+                                            <td>77.8</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Swin-B (224²) <sup>[39]</sup></td>
+                                            <td>88</td>
+                                            <td>83.5</td>
+                                        </tr>
+                                        <tr class="has-background-light">
+                                            <th colspan="3">Generative methods</th>
+                                        </tr>
+                                        <tr>
+                                            <td>HybViT (32²) <sup>[67]</sup></td>
+                                            <td>43</td>
+                                            <td>53.5</td>
+                                        </tr>
+                                        <tr>
+                                            <td>DMSZC-DiTXL2 (256²) <sup>[34]</sup></td>
+                                            <td>338</td>
+                                            <td>77.5</td>
+                                        </tr>
+                                        <tr>
+                                            <td>iGPT-L (48²) <sup>[10]</sup></td>
+                                            <td>1362</td>
+                                            <td>72.6</td>
+                                        </tr>
+                                        <tr class="has-background-light">
+                                            <th colspan="3">Our methods</th>
+                                        </tr>
+                                        <tr>
+                                            <td>PRG-GVP-onlyPretrain (64²)</td>
+                                            <td>122</td>
+                                            <td>20.18</td>
+                                        </tr>
+                                        <tr>
+                                            <td>PRG-GVP-XL (64²)</td>
+                                            <td>122</td>
+                                            <td>77.84</td>
+                                        </tr>
+                                        <tr>
+                                            <td>PRG-ICFM-XL (64²)</td>
+                                            <td>122</td>
+                                            <td>78.12</td>
+                                        </tr>
+                                        <tr>
+                                            <td>PRG-OTCFM-XL (64²)</td>
+                                            <td>122</td>
+                                            <td>78.13</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
             <!--/ Abstract. -->
             <section class="section" id="BibTeX">
