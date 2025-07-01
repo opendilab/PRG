@@ -10,12 +10,22 @@
 🎉 What I cannot create, I do not understand.
 
 # 🔥 News
-- *2025.07.02*: We will first release the version that depends on the [GenerativeRL](https://github.com/opendilab/GenerativeRL.git) library on the tmp branch.
+- *2025.07.02*: We will first release the version that depends on the [GenerativeRL](https://github.com/opendilab/GenerativeRL.git) library.
 - *2025.07.01*: We update WavTokenizer camera ready version for ICCV 2025 and release [project website](https://opendilab.github.io/PRG/)
 - *2024.11.29*: We release PRG on arxiv.
   
 # Upcoming Features and Changes
 We are working on separating the codebase from [GenerativeRL](https://github.com/opendilab/GenerativeRL.git) into its own standalone repository.
+
+# Installation
+1.Fitst install GenerativeRL
+```bash
+git clone https://github.com/opendilab/GenerativeRL.git
+cd GenerativeRL
+pip install -e .
+```
+
+2.
 
 ## Acknowledgement
 The Pretrained Reversible Generation codebase is adapted from the following repositories:
