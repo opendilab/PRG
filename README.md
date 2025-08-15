@@ -50,6 +50,13 @@ cd PRG
 pip install -e .
 ```
 
+## Training
+Simply select the desired configuration file for the corresponding training stage from the [config](https://github.com/opendilab/PRG/tree/main/config) directory, and run your training. For example:
+
+```bash
+cd PRG
+accelerate launch example.py
+```
 
 ## Acknowledgement
 The Pretrained Reversible Generation codebase is adapted from the following repositories:
