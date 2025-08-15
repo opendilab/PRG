@@ -11,7 +11,7 @@
 
 
 ## 🔥 News
-- We are working on separating the codebase from [GenerativeRL](https://github.com/opendilab/GenerativeRL.git) into its own standalone repository. We first release the version that depends on the [GenerativeRL](https://github.com/opendilab/GenerativeRL.git) library.
+-  We first release the version that depends on the [GenerativeRL](https://github.com/opendilab/GenerativeRL.git) library.
 - *2025.07.01*: We update PRG camera ready version for ICCV 2025 and release [project website](https://opendilab.github.io/PRG/)
 - *2024.11.29*: We release PRG on arxiv.
   
