@@ -56,6 +56,7 @@ Simply select the desired configuration file for the corresponding training stag
 ```bash
 cd PRG
 accelerate launch example.py
+#accelerate launch config/Finetune/train_cifar_10_unet_diff.py
 ```
 
 ## Acknowledgement
