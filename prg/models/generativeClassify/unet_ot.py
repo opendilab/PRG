@@ -1,5 +1,5 @@
 import torch
-from grl.neural_network.unet import unet_2D
+from grl.neural_network.unet.unet_2D import unet_2D
 from grl.neural_network import register_module
 from grl.generative_models.conditional_flow_model.independent_conditional_flow_model import (
     IndependentConditionalFlowModel,
@@ -83,33 +83,14 @@ class classifyHead(nn.Module):
         x = self.classifier(x)
         return x
 
-class classifyHeadImagenet(nn.Module):
-    def __init__(self, config):
-        super(classifyHead, self).__init__()
-        self.mypool=nn.Sequential(
-            nn.AdaptiveAvgPool2d((32, 32)) ,
-            nn.Flatten(),
-        )
-        self.classifier=nn.Sequential(
-            nn.LayerNorm(3072),
-            nn.Linear(3072, 2048),
-            nn.Tanh(),
-            nn.Linear(2048,  config.classes, bias=False),
-        )
-        self.config = config
-
-    def forward(self, x):
-        x = self.mypool(x)
-        x = self.classifier(x)
-        return x
 
 class generativeEncoder(nn.Module):
     def __init__(self, config):
         super(generativeEncoder, self).__init__()
         if config.image_size == 64:
-            register_module(Unet_64, "GenerativeClassifyUNet_ICFM")
+            register_module(Unet_64, "GenerativeClassifyUNet_OT")
         elif config.image_size == 32:
-            register_module(Unet_32, "GenerativeClassifyUNet_ICFM")
+            register_module(Unet_32, "GenerativeClassifyUNet_OT")
         self.diffusionModel = IndependentConditionalFlowModel(config.diffusion_model)
         self.config = config
 
@@ -144,9 +125,9 @@ class generativeClassify(nn.Module):
         images = self.grlEncoder.sample_backward_process(x=x, with_grad=with_grad)
         output = self.grlHead(images)
         return output
-
+    
     def matchingLoss(self,x0,x1):
-        return self.grlEncoder.diffusionModel.flow_matching_loss(x0=x0,x1=x1)
+        return self.grlEncoder.diffusionModel.optimal_transport_flow_matching_loss(x0=x0,x1=x1)
 
     def samplePicture(self):
         return self.grlEncoder.sample_forward_process()

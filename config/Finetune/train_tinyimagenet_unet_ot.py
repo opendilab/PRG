@@ -1,7 +1,7 @@
 import wandb
 from easydict import EasyDict
 from accelerate import Accelerator
-from GenerativeClassify.classify.improved_classify.train import train
+from prg.pipline.train import train
 
 def make_config(device):
     model_type="OT"
@@ -19,7 +19,7 @@ def make_config(device):
                 batch_size=128,
                 classes=classes,
                 img_size=image_size,
-                dataset_path="/root/tiny-imagenet-200",
+                dataset_path="~/exp",
                 checkpoint_path=f"/root/Model/Tinyimagent_unet",
                 video_save_path=f"/root/Model/Tinyimagent_unet",
                 dataset="Tinyimagenet",

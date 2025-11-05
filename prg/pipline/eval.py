@@ -9,9 +9,9 @@ import numpy as np
 import torch.backends.cudnn as cudnn
 import random
 from accelerate import Accelerator
-from data import build_loader
-from models import build_model
-from torch_tool import build_optimizer, build_scheduler
+from prg.data import build_loader
+from prg.models import build_model
+from prg.torch_tool import build_optimizer, build_scheduler
 from timm.loss import LabelSmoothingCrossEntropy, SoftTargetCrossEntropy
 import os
 import matplotlib

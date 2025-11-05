@@ -2,16 +2,16 @@ import os
 from easydict import EasyDict
 import torch
 from torch.utils.data import Dataset
-import ipdb
 import wandb
 import torch
 import numpy as np
 import torch.backends.cudnn as cudnn
 import random
 from accelerate import Accelerator
-from data import build_loader
-from models import build_model
-from torch_tool import build_optimizer, build_scheduler
+from prg.data import build_loader
+from prg.models import build_model
+from prg.torch_tool import build_optimizer, build_scheduler
+import prg
 from timm.loss import LabelSmoothingCrossEntropy, SoftTargetCrossEntropy
 import os
 import matplotlib
@@ -60,10 +60,11 @@ def train_flow_matching(accelerator, model, data_loader, optimizer, epoch):
         optimizer.zero_grad()
         accelerator.backward(loss)
         optimizer.step()
-        wandb.log(
-            {"train/loss": loss, "train/epoch": epoch},
-            commit=True,
-        )
+        if accelerator.is_main_process:
+            wandb.log(
+                {"train/loss": loss, "train/epoch": epoch},
+                commit=True,
+            )
     return 0
 
 def train_icfm_flow_matching(accelerator, model, data_loader, optimizer, epoch):
@@ -76,11 +77,11 @@ def train_icfm_flow_matching(accelerator, model, data_loader, optimizer, epoch):
         optimizer.zero_grad()
         accelerator.backward(loss)
         optimizer.step()
-        
-        wandb.log(
-            {"train/loss": loss, "train/epoch": epoch},
-            commit=True,
-        )
+        if accelerator.is_main_process:
+            wandb.log(
+                {"train/loss": loss, "train/epoch": epoch},
+                commit=True,
+            )
     return 0
 
 
@@ -226,13 +227,13 @@ def train(config, accelerator):
                     
             if config.MODEL.model_type in ["ICFM","OT"]:
                 train_icfm_flow_matching(accelerator, model, data_loader_train, optimizer, epoch)
-            elif config.MDOEL.model_type=="Diff":
+            elif config.MODEL.model_type=="Diff":
                 train_flow_matching(accelerator, model, data_loader_train, optimizer, epoch)
             else:
                 raise NotImplementedError("Model type not implemented")
             
         
-    if config.TRAIN.method == "Finetune" or config.TRAIN.method == "Pretrain":
+    if config.TRAIN.method == "Finetune" :
         accelerator.print("Finetune")
         data_loader_train, data_loader_val, mixup_fn = build_loader(config)
         model = build_model(config)
@@ -249,14 +250,8 @@ def train(config, accelerator):
                         prefix="DiffusionModel_Pretrain",
                 )
                 
-        if config.TRAIN.loss_function == "CrossEntropy":
-            criterion = torch.nn.CrossEntropyLoss()
-        elif config.TRAIN.loss_function == "LabelSmoothingCrossEntropy":
-            criterion = LabelSmoothingCrossEntropy(smoothing=config.TRAIN.label_smoothing)
-        elif config.TRAIN.loss_function == "SoftTargetCrossEntropy":
-            criterion = SoftTargetCrossEntropy()
-        else:
-            raise NotImplementedError
+        criterion = LabelSmoothingCrossEntropy(smoothing=config.TRAIN.label_smoothing)
+
         (
             model.grlEncoder.diffusionModel.model,
             model.grlHead,

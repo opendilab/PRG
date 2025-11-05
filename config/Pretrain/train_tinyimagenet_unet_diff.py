@@ -1,7 +1,7 @@
 import wandb
 from easydict import EasyDict
 from accelerate import Accelerator
-from GenerativeClassify.classify.improved_classify.train import train
+from prg.pipline.train import train
 
 def make_config(device):
     model_type="Diff"

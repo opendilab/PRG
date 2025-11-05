@@ -1,7 +1,7 @@
 import wandb
 from easydict import EasyDict
 from accelerate import Accelerator
-from GenerativeClassify.classify.improved_classify.train import train
+from prg.pipline.train import train
 
 def make_config(device):
     model_type="ICFM"
@@ -19,9 +19,9 @@ def make_config(device):
                 batch_size=128,
                 classes=classes,
                 img_size=image_size,
-                dataset_path="/mnt/afs/zhangjinouwen/Dataset/imagenet",
-                checkpoint_path=f"/root/Model/ImageNet",
-                video_save_path=f"/root/Model/ImageNet",
+                dataset_path="~/exp",,
+                checkpoint_path="~/exp",
+                video_save_path="~/exp",
                 dataset="Imagenet",
                 AUG=dict(
                     interpolation="bicubic",

@@ -1,7 +1,7 @@
 import wandb
 from easydict import EasyDict
 from accelerate import Accelerator
-from GenerativeClassify.classify.improved_classify.train import train
+from prg.pipline.train import train
 
 def make_config(device):
     model_type="Diff"
@@ -18,7 +18,7 @@ def make_config(device):
                 batch_size=180,
                 classes=classes,
                 img_size=image_size,
-                dataset_path="/root/data/tiny-imagenet-200",
+                dataset_path="~/exp",
                 checkpoint_path=f"./{project_name}/checkpoint",
                 video_save_path=f"./{project_name}/video",
                 dataset="Tinyimagenet",

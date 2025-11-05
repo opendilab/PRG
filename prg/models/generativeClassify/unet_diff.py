@@ -1,5 +1,5 @@
 import torch
-from grl.neural_network.unet import unet_2D
+from grl.neural_network.unet.unet_2D import unet_2D
 from grl.neural_network import register_module
 from grl.generative_models.diffusion_model.diffusion_model import DiffusionModel
 import torch.nn as nn
